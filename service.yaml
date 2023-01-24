@@ -6,9 +6,9 @@ metadata:
   name: python-app-4433
 spec:
   selector:
-    app: nginx
+    app: python-app-4433
   type: NodePort
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 5000
+    targetPort: 5000
     protocol: TCP

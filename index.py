@@ -3,27 +3,27 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
- 
+
 @app.route('/', methods=["GET"])
 def index():
-  try:
-    with open('/var/python-app/data.txt') as f:
-      lines = f.read()
-  except IOError:
-    lines = ""
-  return render_template('index.html', data=lines.split("\n"))
+    try:
+        with open('/var/python-app/data.txt') as f:
+            lines = f.read()
+    except IOError:
+        lines = ""
+    return render_template('index.html', data = lines.split("\n"))
 
 @app.route('/', methods=["POST"])
 def index_post():
 
-  name = request.form["name"]
-  msg  = request.form["msg"]
-  time = datetime.now()
+    name = request.form["name"]
+    msg = request.form["msg"]
+    time = datetime.now()
 
-  with open('/var/python-app/data.txt','a') as f:
-    f.write(f"{time} {name} {msg}\n")
- 
-  return redirect("/")
+    with open('/var/python-app/data.txt','a') as f:
+        f.write(f"{time} {name} {msg}\n")
+
+    return redirect("/")
 
 if __name__ == '__main__':
     os.makedirs("/var/python-app", exist_ok=True)

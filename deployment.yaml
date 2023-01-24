@@ -15,5 +15,5 @@ spec:
         app: python-app-4433
     spec:
       containers:
-      - image: ichita/python-app
+      - image: ichita/python-app:v2
         name: python-app-4433
