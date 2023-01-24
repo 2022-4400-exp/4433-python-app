@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: python-app-4433
+  name: python-app-4433
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app-4433
+  template:
+    metadata:
+      labels:
+        app: python-app-4433
+    spec:
+      containers:
+      - image: ichita/python-app
+        name: python-app-4433
